@@ -54,7 +54,7 @@ var registration = function(req, res) {
                                             var mailOptions = {
                                                 from: 'javedkhan199501@gmail.com',
                                                 to: 'javedkhan19950@gmail.com',
-                                                subject: 'Sending Email using Node.js',
+                                                subject: 'Advocate case dairy',
                                                 text: 'this is the link for reset the password'
                                             };
                                             transporter.sendMail(mailOptions, function(error, info) {
