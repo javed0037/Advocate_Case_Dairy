@@ -58,7 +58,7 @@ var addNewCase = function(req,res){
         res.json({message : "There  is error to save  info in db",data : 400})
         }
         else if(data){
-        res.json({message: "New case created successfully",data : 200 })
+        res.json({message: "New hearing of case Scheduled successfully",data : 200 })
       }
       else{
         res.json({message : "Please enter the correct details"})
@@ -76,7 +76,7 @@ getHearingByUserid =  (req,res) => {
             if(err){
               res.json({message : "Please enter the correct details",status :400})
             }else if(data) {
-              res.json({message : "Hearing detailed added sucessfully",status:200,data :data})
+              res.json({message : "Hearing detailed received sucessfully",status:200,data :data})
             }else {res.json({message : "Please enter the correct userId",status : 400})
           }
   })
