@@ -13,15 +13,17 @@ var addNewCase = function(req,res){
          opposite_Party_Advocate  : req.body.opposite_Party_Advocate,
          applicable_Act  : req.body.applicable_Act,
          remarks   : req.body.remarks,
-         case_state  : req.body.case_state
+         case_state  : req.body.case_state,
+         endDate : req.body.endDate,
+         startDate : req.body.startDate
        };
-        if(reqobj.caseName && reqobj.engagedFor && reqobj.courtName && reqobj.clientname && reqobj.opposite_Party_Name && reqobj.opposite_Party_Advocate && reqobj.applicable_Act && reqobj.applicable_Act && reqobj.remarks){
+        if(reqobj.caseName && reqobj.engagedFor && reqobj.courtName && reqobj.clientname && reqobj.opposite_Party_Name && reqobj.opposite_Party_Advocate && reqobj.applicable_Act){
               Case.create(reqobj,(err,data) => {
                   if(err){
-                  res.json({message : "There  is error to save  info in db",data : 400})
+                  res.json({message : "There  is error to save  info in db",status : 400,err:err})
                   }
                   else if(data){
-                  res.json({message: "New case created successfully",data : 200 })
+                  res.json({message: "Your case has been listed in our files!.",status : 200 })
                 }
                 else{
                   res.json({message : "Please enter the correct details"})
@@ -29,9 +31,10 @@ var addNewCase = function(req,res){
               })
             }
             else {
-               res.json({message : "Please enter the all required fields ",data : 200})
+               res.json({message : "Please enter the all required fields ",status : 400})
             }
     }
+
   getAllCase =  (req,res) => {
     _id = req.body.userId;
     Case.find({},(err,data)=>{
@@ -44,6 +47,20 @@ var addNewCase = function(req,res){
       }
     })
   }
+
+   getCaseById =  (req,res) => {
+    let Id = req.body.id;
+    Case.find({_id : Id},(err,data)=>{
+      if(err){
+        res.json({message : "There is error to get data from db", status : 400})
+      }else if(data){
+        res.json({message : "Your Case.",status : 200,records : data})
+      }else{
+        res.json({message : "Error to get data",status : 400})
+      }
+    })
+  }
+
 
     addNewHearing = (req,res)=>{
       reqobj = {
@@ -99,3 +116,4 @@ getHearingByUserid =  (req,res) => {
      exports.addNewHearing = addNewHearing;
      exports.getHearingByUserid = getHearingByUserid;
      exports.getAllHearing = getAllHearing;
+     exports.getCaseById = getCaseById;
