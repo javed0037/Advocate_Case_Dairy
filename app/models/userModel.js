@@ -13,18 +13,21 @@ var Schema = mongoose.Schema;
             Gender    :               { type : String },
             active              :     { default:false,type:Boolean},
             verificationToken  :      { type : String},
+            resetPasswordToken  : { type: String},
+            resetPasswordExpires: { type: Date},
             AccountType :             { type : String ,
                                             enum : ['Admin','Client'],
                                                     default : 'Admin' },
-            Verifymail :              { verificationStatus : { type : Boolean , default : false },
+          verifyEmail         :       {verificationStatus: {type: Boolean, default :false},
+                                               Email: {type:String}
+                                  },
 
 
 
             CreatedAt :               { type  : Date ,default : Date.now },
-            IsDelete :                { type : Boolean , defaults : false },
-            verificationToken :       { type : String }
+            IsDelete :                { type : Boolean , defaults : false }
 
-                    }
+
 
    });
 

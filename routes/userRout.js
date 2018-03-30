@@ -7,4 +7,8 @@ router.get('/getUsers', function(req, res){
 })
 
 router.post('/registration', usered.registration);
+router.post('/login',usered.login);
+router.post('/verifyEmail',usered.verifyEmail);
+router.post('/forgotPassword',usered.forgotPassword);
+router.post('/resetPasswordByUserId',usered.resetPasswordByUserId);
 module.exports = router;
