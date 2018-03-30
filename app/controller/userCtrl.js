@@ -48,13 +48,13 @@ var registration = function(req, res) {
                                                var transporter = nodemailer.createTransport({
                                                 service: 'gmail',
                                                 auth: {
-                                                    user: 'javedkhan199501@gmail.com',
-                                                    pass: 'arshwrarshi'
+                                                    user: 'XXXXX',
+                                                    pass: 'XXXX'
                                                 }
                                             });
                                             var mailOptions = {
-                                                from: 'javedkhan199501@gmail.com',
-                                                to: 'javedkhan19950@gmail.com',
+                                                from: 'XXXXXX',
+                                                to: 'XXXXXX',
                                                 subject: 'Advocate case dairy',
                                                 text: 'this is the link for reset the password'
                                             };
